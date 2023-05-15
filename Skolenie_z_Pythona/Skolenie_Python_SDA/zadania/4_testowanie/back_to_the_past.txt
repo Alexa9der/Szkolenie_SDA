@@ -1,0 +1,1 @@
+Opakuj rozwiazania zadan z katalogu "wstep" w funkcje i napisz do nich proste testy.
