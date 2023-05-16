@@ -20,7 +20,7 @@
 """
 
 
-def determine_the_winner(card1, card2):
+def determine_the_winner( card1, card2 ):
     """Wskazuje zwyciezce potyczki w grze wojna.
 
     :param card1: litera (string) reprezentujaca karte gracza 1.
@@ -28,4 +28,12 @@ def determine_the_winner(card1, card2):
     :return: 0 dla remisu, 1 jesli zwyciezy gracz 1, 2 dla zwyciestwa gracza 2.
 
     """
-    pass
+    if card1 > card2:
+        return 1
+    elif card1 < card2:
+        return 2
+    else:
+        return 0
+
+
+print(determine_the_winner("D", "A"))

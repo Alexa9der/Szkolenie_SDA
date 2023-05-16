@@ -14,7 +14,7 @@
 """
 
 
-def calculate_brutto_prize(grocery_list):
+def calculate_brutto_prize( grocery_list: dict ) -> int:
     """Oblicza cene brutto wszystkich zakupow z grocery_list.
 
     :param grocery_list: slownik, w ktorym kluczami sa stringi reprezentujace zakupy,
@@ -22,4 +22,14 @@ def calculate_brutto_prize(grocery_list):
     :return: sume wszystkich wartosci brutto z listy (jako liczba).
 
     """
-    pass
+    gross_amount = 0
+    # net_amount = 0
+    for prices, addition in grocery_list.values():
+        gross_amount += prices + (prices / 100) * addition
+        # net_amount += prices
+
+    return gross_amount
+
+
+grocery_list = {"mleko": (5.00, 10), "ser": (4.50, 15), "jogurt": (3, 25)}
+print(calculate_brutto_prize(grocery_list))
