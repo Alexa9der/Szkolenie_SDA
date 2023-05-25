@@ -52,3 +52,11 @@ class Ulamek:
         licznik = self.licznik * ulamek.mianownik
         mianownik = self.mianownik * ulamek.licznik
         return Ulamek(licznik, mianownik)
+
+
+
+def main():
+    ...
+
+if __name__ == "__main__":
+    main()

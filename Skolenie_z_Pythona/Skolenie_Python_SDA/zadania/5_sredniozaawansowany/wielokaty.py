@@ -8,14 +8,16 @@
     dla kazdego obiektu.
 """
 
-from abc import ABC, abstractmethod
-from typing import Union
+from abc import ABC  # Python отсутствует встроенная поддержка абстрактных классов,
+                     # для этой цели используется модуль abc (Abstract Base Class)
+from abc import abstractmethod  # абстрактный метод, который будет необходимо переопределять для каждого подкласса
+from typing import Union  # Union sugeruje co moze zwrocic funkcja
 
 
 class Wielokat(ABC):
 
     @abstractmethod
-    def oblicz_pole(self) -> Union[int, float]:  # Union sugeruje ze funkcja moze zwrocic inta albo floata
+    def oblicz_pole( self ) -> Union[int, float]:  # Union sugeruje ze funkcja moze zwrocic inta albo floata
         """Metoda ma za zadanie obliczyc pole danego obiektu.
 
         Ze wzgledu na fakt, iz nie wiemy w tym momencie jaki to jest wielokat,
@@ -27,22 +29,48 @@ class Wielokat(ABC):
 
 
 class Kwadrat(Wielokat):
-    pass
+    def __init__( self, bok ):
+        self.bok = bok
+
+    def oblicz_pole( self ) -> Union[int, float]:
+        return self.bok ** 2
 
 
 class Prostokat(Wielokat):
-    pass
+    def __init__( self, bok1, bok2 ):
+        self.bok1 = bok1
+        self.bok2 = bok2
+
+    def oblicz_pole( self ) -> Union[int, float]:
+        return self.bok1 * self.bok2
 
 
 class Trojkat(Wielokat):
-    pass
+    def __init__( self, bok, wysokosc ):
+        self.bok = bok
+        self.wysokosc = wysokosc
+
+    def oblicz_pole( self ) -> Union[int, float]:
+        return (1 / 2) * (self.bok * self.wysokosc)
 
 
-def licz_pola(wielokaty: list) -> list:
+def licz_pola( wielokaty: list ) -> list:
     """Oblicza pola wszystkich wielokatow podanych w liscie.
 
     :param wielokaty: lista obiektow dziedziczacych po Wielokat.
     :return: lista obliczonych pol.
 
     """
-    pass
+    return [i.oblicz_pole() for i in wielokaty]
+
+
+def mean():
+    kwadrat = Kwadrat(4)
+    prostokat = Prostokat(4, 4)
+    trojkat = Trojkat(4, 4)
+
+    print(licz_pola([kwadrat, prostokat, trojkat]))
+
+
+if __name__ == "__main__":
+    mean()

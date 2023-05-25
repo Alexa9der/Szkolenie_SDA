@@ -16,7 +16,7 @@
 """
 
 
-def count_even_numbers(numbers):
+def count_even_numbers( numbers ):
     """Zlicza liczby parzyste w liscie podanej jako argument.
 
     :param numbers: lista liczb.
@@ -24,4 +24,8 @@ def count_even_numbers(numbers):
         zwracanej to int.
 
     """
-    pass
+    result = [i for i in numbers if i % 2 == 0 or i == 0]
+    return len(result)
+
+
+print(count_even_numbers([0, 1, 2, 3, 4, 5, 6]))

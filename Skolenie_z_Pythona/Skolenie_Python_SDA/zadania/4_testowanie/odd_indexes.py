@@ -15,9 +15,26 @@
 import unittest
 
 
-def odd_indexes(string):
+def odd_indexes( string ):
     return string[1::2]
-    
-    
+
+
 class TestOddIndexes(unittest.TestCase):
-    pass
+
+    def test_equal_odd_indexes( self ):
+        self.assertEqual(odd_indexes("teleturniej"), "eeune")
+        self.assertEqual(odd_indexes("komputer"), "optr")
+
+    def test_raises_odd_indexes( self ):
+        # check that odd_indexes fails when the argument is int
+        with self.assertRaises(TypeError):
+            odd_indexes(123)
+
+        with self.assertRaises(AssertionError):
+            self.assertEqual(odd_indexes("komputer"), "opt")
+
+        ...
+
+
+if __name__ == "__main__":
+    unittest.main()

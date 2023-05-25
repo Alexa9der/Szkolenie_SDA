@@ -24,9 +24,10 @@ from typing import Callable
 
 
 # Przykladowe rozwianie 1
-def twice(function: Callable) -> Callable:  # typ obiektu, na ktorym mozemy uzyc operatora wywolania, czyli nawiasow ()
+def twice(
+        function: Callable ) -> Callable:  # typ obiektu, na ktorym mozemy uzyc operatora wywolania, czyli nawiasow ()
 
-    def inner(*args, **kwargs):
+    def inner( *args, **kwargs ):
         function(*args, **kwargs)
         return function(*args, **kwargs)
 
@@ -34,9 +35,10 @@ def twice(function: Callable) -> Callable:  # typ obiektu, na ktorym mozemy uzyc
 
 
 # Przykladowe rozwianie 2
-def twice(function: Callable) -> Callable:  # typ obiektu, na ktorym mozemy uzyc operatora wywolania, czyli nawiasow ()
+def twice(
+        function: Callable ) -> Callable:  # typ obiektu, na ktorym mozemy uzyc operatora wywolania, czyli nawiasow ()
 
-    def inner(*a, **k):
+    def inner( *a, **k ):
         function(*a, **k)
         returned_value = function(*a, **k)
         return returned_value
@@ -52,3 +54,13 @@ def print_hello():
 @twice
 def print_bye():
     print("bye")
+
+
+def main():
+    print_hello()
+    print()
+    print_bye()
+
+
+if __name__ == "__main__":
+    main()

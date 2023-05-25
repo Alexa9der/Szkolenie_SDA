@@ -28,12 +28,17 @@ def determine_the_winner( card1, card2 ):
     :return: 0 dla remisu, 1 jesli zwyciezy gracz 1, 2 dla zwyciestwa gracza 2.
 
     """
-    if card1 > card2:
+    res = {'1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10, 'J': 11, 'D': 12, 'K': 13, 'A': 14}
+    card1 = card1.upper()
+    card2 = card2.upper()
+
+    if res[card1] > res[card2]:
         return 1
-    elif card1 < card2:
+    elif res[card1] < res[card2]:
         return 2
     else:
         return 0
 
 
 print(determine_the_winner("D", "A"))
+

@@ -20,18 +20,33 @@
     Przetestuj swoje rozwiazanie.
 """
 
-from typing import Callable
+from typing import Callable  # typ obiektu, na ktorym mozemy uzyc operatora wywolania, czyli nawiasow ()
 
 
-def twice(function: Callable) -> Callable:  # typ obiektu, na ktorym mozemy uzyc operatora wywolania, czyli nawiasow ()
-    pass
+def twice( repetitions=2 ) -> Callable:
+    def decorators( function ):
+        def wraper( *args, **kwargs ):
+            res = [function(*args, **kwargs) for _ in range(repetitions)]
+            return res
+        return wraper
+    return decorators
 
 
-@twice
+@twice(2)
 def print_hello():
     print("hello")
 
 
-@twice
+@twice(repetitions=3)
 def print_bye():
     print("bye")
+
+
+def main():
+    print_hello()
+    print_bye()
+
+
+if __name__ == "__main__":
+    main()
+

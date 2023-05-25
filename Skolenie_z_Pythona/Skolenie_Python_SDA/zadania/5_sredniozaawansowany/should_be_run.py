@@ -27,15 +27,30 @@
 
 from typing import Callable
 
-SHOULD_BE_RUN = False
+SHOULD_BE_RUN = True
+# SHOULD_BE_RUN = False
 
 
-def run_or_not(func: Callable) -> Callable:
-    ...
+
+def run_or_not( func: Callable ) -> Callable:
+    def wrape( *args, **kwargs ):
+        global SHOULD_BE_RUN
+        if SHOULD_BE_RUN : return func( *args, **kwargs )
+        else: return "Pomijam..."
+    return wrape
 
 
 @run_or_not
-def add(a, b):
-    return a+b
+def add( a, b ):
+    return a + b
 
-print(add(1, 2))
+
+
+
+def main():
+    print(add(1, 2))
+
+
+
+if __name__ == "__main__":
+    main()

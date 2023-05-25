@@ -15,4 +15,10 @@ def check_if_palindrome(string):
              False w przeciwnym wypadku.
 
     """
-    pass
+    res = True
+    if string != string[::-1]: res = False
+
+    return res
+
+
+print(check_if_palindrome("sts"))

@@ -8,11 +8,14 @@
 """
 
 
-def produce_double_signs(string):
+def produce_double_signs( string ):
     """Tworzy nowy napis na podstawie podanego, podwajajac kazdy znak.
 
     :param string: napis, w ktorym znaki powinny byc podwojone
     :return: nowy napis z podwojonymi znakami.
 
     """
-    pass
+    return "".join([i + i for i in string])
+
+
+print(produce_double_signs("Python"))

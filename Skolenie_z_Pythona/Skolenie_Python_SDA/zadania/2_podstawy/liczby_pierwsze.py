@@ -16,4 +16,13 @@ def is_prime_number(number):
              False jezeli jest zlozona.
 
     """
-    pass
+    res = True
+    for i in range(3,number):
+        if number % i == 0:
+            res = False
+    if number == 1 or number == 3 or number == 0 :
+        res = True
+
+    return res
+
+print(is_prime_number(3))
